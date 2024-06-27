@@ -1,0 +1,52 @@
+1) taper sur Jenkins VM : sudo nano /etc/nginx/sites-available/jenkins -->yet7alk f shell
+
+server {
+    listen 80;
+    server_name (yourdomain.com)--> fi 3odh hadhi tektbi @add ip mta3 vm jenkis;
+
+    location / {
+        proxy_pass http://localhost:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+2)Commade hadhi bech taal enable lel config o restart
+sudo ln -s /etc/nginx/sites-available/jenkins /etc/nginx/sites-enabled/
+sudo systemctl restart nginx
+
+3) temchi lel jenkins b localhost:8080 f vm jenkins
+Configurer Jenkins pour connaître le proxy (optionnel mais recommandé) :
+
+Ouvrez Jenkins et allez dans Manage Jenkins -> Configure Global Security.
+Sous HTTP Header, cochez Enable proxy compatibility et assurez-vous que X-Forwarded-Proto est inclus.
+
+4)akher haja tji lel chrome mta3 PC mta3ek tektbi @ip ma3 vm jenkis:8080 li houwa port mta3 jenkins kima heka :172.20.10.2:8080
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Host github.com
+Hostname github.com
+IdentityFile ~/.ssh/id_rsa
+IdentitiesOnly yes
+StrictHostKeyChecking no
+UserKnownHostsFile /dev/nul
